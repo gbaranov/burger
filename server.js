@@ -11,6 +11,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.set('port', (process.env.PORT || 3000));
 
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(burgersController);
 
